@@ -1,0 +1,83 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 3528a76b561908ec5e2bda1596ac13ca97c46650689541fed521fd824c0a9816
+
+name:           hw2
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/fp-ctd-itmo/hw2-Natallem#readme>
+homepage:       https://github.com/fp-ctd-itmo/hw2-Natallem#readme
+bug-reports:    https://github.com/fp-ctd-itmo/hw2-Natallem/issues
+author:         Natasha Lemeshkova
+maintainer:     lnv2000@inbox.ru
+copyright:      2020 natallem
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/fp-ctd-itmo/hw2-Natallem
+
+library
+  exposed-modules:
+      Block1.Task1
+      Block1.Task2
+      Block1.Task3
+
+      Block2.Task1
+      Block2.Task2
+
+      Block3.Task1
+      Block3.Task2
+      Block3.Task3
+      Block3.Task4
+  other-modules:
+      Paths_hw2
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Werror
+  build-depends:
+      base >=4.7 && <5,
+      mtl
+  default-language: Haskell2010
+
+executable hw2-exe
+  main-is: Main.hs
+  other-modules:
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hw2
+  default-language: Haskell2010
+
+test-suite hw2-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Block1.Task1Spec
+
+      Block2.Task1Spec
+
+      Block3.Task1Spec
+      Block3.Task2Spec
+      Block3.Task3Spec
+      Block3.Task4Spec
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hw2
+    , hspec
+    , hspec-core
+    , QuickCheck
+  default-language: Haskell2010

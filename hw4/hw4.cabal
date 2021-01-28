@@ -1,0 +1,117 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 812bac87b7c09ec8884f12eab167d01212d030849947ee3cb901dc90b34f71c3
+
+name:           hw4
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/fp-ctd-itmo/hw4-Natallem>
+homepage:       https://github.com/fp-ctd-itmo/hw4-Natallem#readme
+bug-reports:    https://github.com/fp-ctd-itmo/hw4-Natallem/issues
+author:         Lemeshkova Natalya
+maintainer:     lnv2000@inbox.ru
+copyright:      2021 lnv2000
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/hw4
+
+library
+  exposed-modules:
+      Task1.Geometry.FastGeometry
+      Task1.Geometry.SlowGeometry
+      Task1.Benchmark
+
+      Task2.MonteCarlo
+      Task2.Benchmark
+
+      Task3.ConcurrentHashTable
+      Task3.Benchmark
+
+      LensTasks.Task6
+      LensTasks.Task7
+
+      Task8.Covid
+      Task8.Grid
+      Task8.Person
+
+  other-modules:
+      Paths_hw4
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , deepseq
+    , criterion
+    , random
+    , monad-par-extras
+    , monad-par
+    , parallel
+    , stm
+    , vector
+    , hashable
+    , async
+    , extra
+    , directory
+    , filepath
+    , microlens
+    , ListZipper
+    , comonad 
+  default-language: Haskell2010
+
+executable hw4-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_hw4
+  hs-source-dirs:
+      app
+  ghc-options: 
+    -threaded 
+    -rtsopts 
+    -with-rtsopts=-N6
+    -eventlog
+    -O2
+  build-depends:
+      base >=4.7 && <5
+    , hw4
+    , deepseq
+    , random
+    , monad-par-extras
+    , monad-par
+    , parallel
+    , stm
+    , vector
+    , hashable
+    , async
+    , extra
+    , directory
+    , filepath
+    , microlens
+    , ListZipper
+    , comonad
+  default-language: Haskell2010
+
+test-suite hw4-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Task3Spec
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hw4
+    , hspec
+    , hspec-core
+    , QuickCheck
+  default-language: Haskell2010
